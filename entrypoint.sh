@@ -109,6 +109,9 @@ rm -rf "$ABSOLUTE_TARGET_DIRECTORY"
 echo "[+] Creating (now empty) $ABSOLUTE_TARGET_DIRECTORY"
 mkdir -p "$ABSOLUTE_TARGET_DIRECTORY"
 
+echo "[+] Listing Target Directory (should be empty)"
+ls -al "$ABSOLUTE_TARGET_DIRECTORY"
+
 echo "[+] Listing Current Directory Location"
 ls -al
 
@@ -138,6 +141,9 @@ fi
 echo "[+] Copying contents of source repository folder $SOURCE_DIRECTORY to folder $TARGET_DIRECTORY in git repo $DESTINATION_REPOSITORY_NAME"
 cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"
 cd "$CLONE_DIR"
+
+echo "[+] Listing Target Directory (should be populated)"
+ls -al "$ABSOLUTE_TARGET_DIRECTORY"
 
 echo "[+] Files that will be pushed"
 ls -la
