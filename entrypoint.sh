@@ -109,6 +109,9 @@ rm -rf "$ABSOLUTE_TARGET_DIRECTORY"
 echo "[+] Creating (now empty) $ABSOLUTE_TARGET_DIRECTORY"
 mkdir -p "$ABSOLUTE_TARGET_DIRECTORY"
 
+echo "[+] Listing contents of target (should be empty) $ABSOLUTE_TARGET_DIRECTORY"
+ls -al "$ABSOLUTE_TARGET_DIRECTORY"
+
 echo "[+] Listing Current Directory Location"
 ls -al
 
@@ -139,8 +142,14 @@ echo "[+] Copying contents of source repository folder $SOURCE_DIRECTORY to fold
 cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"
 cd "$CLONE_DIR"
 
+echo "[+] Listing contents of target (should be populated) $ABSOLUTE_TARGET_DIRECTORY"
+ls -al "$ABSOLUTE_TARGET_DIRECTORY"
+
 echo "[+] Files that will be pushed"
 ls -la
+
+echo "[+] git status before add:"
+git status
 
 ORIGIN_COMMIT="https://$GITHUB_SERVER/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
 COMMIT_MESSAGE="${COMMIT_MESSAGE/ORIGIN_COMMIT/$ORIGIN_COMMIT}"
